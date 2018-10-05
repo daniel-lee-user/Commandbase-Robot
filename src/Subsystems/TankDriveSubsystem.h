@@ -16,6 +16,7 @@ private:
 	// for methods that implement subsystem capabilities
 	TalonSRX* left;
 	TalonSRX* right;
+	bool inverted = false;
 
 public:
 	TankDriveSubsystem();

@@ -16,8 +16,8 @@
 
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
- constexpr int kLeftMotor = 1;
- constexpr int kRightMotor = 2;
+ constexpr int kLeftMotor = 2;
+ constexpr int kRightMotor = 3;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

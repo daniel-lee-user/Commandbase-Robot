@@ -11,15 +11,18 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <TimedRobot.h>
 
+
 #include "Commands/ExampleCommand.h"
 #include "Commands/MyAutoCommand.h"
 #include "OI.h"
 #include "Subsystems/ExampleSubsystem.h"
+#include "Subsystems/TankDriveSubsystem.h" //includes tank drive subsystem
 
 class Robot : public frc::TimedRobot {
 public:
-	static ExampleSubsystem m_subsystem;
-	static OI m_oi;
+	static ExampleSubsystem* m_subsystem;
+	static OI* m_oi;
+	static TankDriveSubsystem* t_subsystem; //creates subsystem object
 
 	void RobotInit() override;
 	void DisabledInit() override;

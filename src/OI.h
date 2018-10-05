@@ -6,8 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+#include "Joystick.h"
 
 class OI {
+private:
+	Joystick* rightMotorStick;
+	Joystick* leftMotorStick;
+
 public:
 	OI();
+	~OI();
+	Joystick* getRightMotorStick();
+	Joystick* getLeftMotorStick();
 };

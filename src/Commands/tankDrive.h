@@ -9,9 +9,9 @@
 
 #include <Commands/Command.h>
 
-class tankDrive : public frc::Command {
+class TankDrive : public frc::Command {
 public:
-	tankDrive();
+	TankDrive();
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
