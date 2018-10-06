@@ -22,8 +22,8 @@ void TankDriveSubsystem::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 void TankDriveSubsystem::tankDrive(double leftSpeed, double rightSpeed) {
-	left->SetInverted(inverted);
-	right->SetInverted(inverted);
+	left->SetInverted(true);
+	right->SetInverted(true);
 	left->Set(ControlMode::PercentOutput, leftSpeed);
 	right->Set(ControlMode::PercentOutput, rightSpeed);
 }

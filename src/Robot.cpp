@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Robot.h"
+#include "WPILib.h"
 
 #include <Commands/Scheduler.h>
 #include <SmartDashboard/SmartDashboard.h>
@@ -15,6 +16,7 @@ OI* Robot::m_oi;
 TankDriveSubsystem* Robot::t_subsystem; //instantiates tank subsystem
 
 void Robot::RobotInit() {
+	CameraServer::GetInstance()->StartAutomaticCapture();
 	m_chooser.AddDefault("Default Auto", &m_defaultAuto);
 	m_chooser.AddObject("My Auto", &m_myAuto);
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
