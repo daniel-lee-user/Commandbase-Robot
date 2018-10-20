@@ -6,21 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include "Joystick.h"
-#include "WPILib.h"
 
-class OI {
-private:
-	Joystick* rightMotorStick;
-	Joystick* leftMotorStick;
-	Joystick* winchMotorStick;
-	Button* runLeftRight;
+#include <Commands/Command.h>
 
+class leftMotorRun : public frc::Command {
 public:
-	OI();
-	~OI();
-	Joystick* getRightMotorStick();
-	Joystick* getLeftMotorStick();
-	Joystick* getWinchMotorStick();
-
+	leftMotorRun();
+	void Initialize() override;
+	void Execute() override;
+	bool IsFinished() override;
+	void End() override;
+	void Interrupted() override;
 };
+

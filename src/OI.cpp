@@ -6,11 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 #include "OI.h"
-
+#include "WPILib.h"
 #include <WPILib.h>
+#include "Robot.h"
+#include "../Commands/runLeftRightMotors.h"
+#include "../Commands/TankDrive.h"
 
-OI::OI(): rightMotorStick(new Joystick(0)), leftMotorStick(new Joystick(1)) {
+OI::OI(): rightMotorStick(new Joystick(0)),leftMotorStick(new Joystick(1)), winchMotorStick(new Joystick(2)), runLeftRight(new JoystickButton(leftMotorStick, 2)) {
 	// Process operator interface input here.
+	runLeftRight->WhenPressed(new runLeftRightMotors());
+	runLeftRight->WhenReleased(new TankDrive());
+
 }
 
 Joystick* OI::getRightMotorStick() {
@@ -21,3 +27,6 @@ Joystick* OI::getLeftMotorStick() {
 	return leftMotorStick;
 }
 
+Joystick* OI::getWinchMotorStick() {
+	return winchMotorStick;
+}

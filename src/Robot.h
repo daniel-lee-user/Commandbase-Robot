@@ -10,6 +10,7 @@
 #include <Commands/Command.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <TimedRobot.h>
+#include "Subsystems/Winch.h"
 
 
 #include "Commands/ExampleCommand.h"
@@ -22,6 +23,7 @@ class Robot : public frc::TimedRobot {
 public:
 	static ExampleSubsystem* m_subsystem;
 	static OI* m_oi;
+	static Winch* winch_subsystem;
 	static TankDriveSubsystem* t_subsystem; //creates subsystem object
 
 	void RobotInit() override;

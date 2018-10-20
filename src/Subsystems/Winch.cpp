@@ -5,25 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
-#include "TankDriveSubsystem.h"
+#include "Winch.h"
 #include "../RobotMap.h"
 #include "ctre/Phoenix.h"
-#include "../Commands/TankDrive.h"
+#include "../Commands/MoveWinch.h"
 
-TankDriveSubsystem::TankDriveSubsystem() : Subsystem("TankDriveSubsystem"), left(new TalonSRX(kLeftMotor)), right(new TalonSRX(kRightMotor)) {
+
+Winch::Winch() : Subsystem("WinchSubsystem"), winchMotor(new TalonSRX(kWinchPort)) {
 
 }
 
-void TankDriveSubsystem::InitDefaultCommand() {
+void Winch::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
-	SetDefaultCommand(new TankDrive());
+	// SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new MoveWinch());
 }
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void TankDriveSubsystem::\tankDrive(double leftSpeed, double rightSpeed) {
-	left->SetInverted(false);
-	right->SetInverted(false);
-	left->Set(ControlMode::PercentOutput, -leftSpeed);
-	right->Set(ControlMode::PercentOutput, rightSpeed);
+void Winch::winchSpeed(double motorSpeed) {
+	winchMotor->SetInverted(false);
+	winchMotor->Set(ControlMode::PercentOutput, motorSpeed);
 }
+

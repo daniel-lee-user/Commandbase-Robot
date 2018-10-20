@@ -9,12 +9,13 @@
 
 #include <Commands/Command.h>
 
-class MyAutoCommand : public frc::Command {
+class MoveWinch : public frc::Command {
 public:
-	MyAutoCommand();
+	MoveWinch();
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
 	void End() override;
 	void Interrupted() override;
 };
+

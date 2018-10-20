@@ -6,21 +6,20 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include "Joystick.h"
-#include "WPILib.h"
 
-class OI {
+#include <Commands/Subsystem.h>
+#include "ctre/Phoenix.h"
+
+class Winch : public frc::Subsystem {
 private:
-	Joystick* rightMotorStick;
-	Joystick* leftMotorStick;
-	Joystick* winchMotorStick;
-	Button* runLeftRight;
+	// It's desirable that everything possible under private except
+	// for methods that implement subsystem capabilities
+	TalonSRX* winchMotor;
+	bool inverted = false;
 
 public:
-	OI();
-	~OI();
-	Joystick* getRightMotorStick();
-	Joystick* getLeftMotorStick();
-	Joystick* getWinchMotorStick();
-
+	Winch();
+	void InitDefaultCommand() override;
+	void winchSpeed(double motorSpeed);
 };
+

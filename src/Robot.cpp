@@ -14,6 +14,7 @@
 ExampleSubsystem* Robot::m_subsystem;
 OI* Robot::m_oi;
 TankDriveSubsystem* Robot::t_subsystem; //instantiates tank subsystem
+Winch* Robot::winch_subsystem;
 
 void Robot::RobotInit() {
 	CameraServer::GetInstance()->StartAutomaticCapture();
@@ -30,6 +31,7 @@ void Robot::RobotInit() {
 void Robot::DisabledInit() {
 	m_oi = new OI();
 	t_subsystem = new TankDriveSubsystem();
+	winch_subsystem = new Winch();
 }
 
 void Robot::DisabledPeriodic() {

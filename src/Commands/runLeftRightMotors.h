@@ -6,21 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include "Joystick.h"
-#include "WPILib.h"
 
-class OI {
-private:
-	Joystick* rightMotorStick;
-	Joystick* leftMotorStick;
-	Joystick* winchMotorStick;
-	Button* runLeftRight;
+#include <Commands/CommandGroup.h>
 
+class runLeftRightMotors : public frc::CommandGroup {
 public:
-	OI();
-	~OI();
-	Joystick* getRightMotorStick();
-	Joystick* getLeftMotorStick();
-	Joystick* getWinchMotorStick();
-
+	runLeftRightMotors();
 };
+

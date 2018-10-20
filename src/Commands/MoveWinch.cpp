@@ -5,29 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "MyAutoCommand.h"
-
+#include "MoveWinch.h"
 #include "../Robot.h"
 
-MyAutoCommand::MyAutoCommand() {
+MoveWinch::MoveWinch() {
 	// Use Requires() here to declare subsystem dependencies
-
+	Requires(Robot::winch_subsystem);
 }
 
 // Called just before this Command runs the first time
-void MyAutoCommand::Initialize() {}
+void MoveWinch::Initialize() {
+
+}
 
 // Called repeatedly when this Command is scheduled to run
-void MyAutoCommand::Execute() {}
+void MoveWinch::Execute() {
+	Robot::winch_subsystem->winchSpeed(Robot::m_oi->getWinchMotorStick()->GetY()); //get input from joystick continuosly
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool MyAutoCommand::IsFinished() {
+bool MoveWinch::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void MyAutoCommand::End() {}
+void MoveWinch::End() {
+
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void MyAutoCommand::Interrupted() {}
+void MoveWinch::Interrupted() {
+
+}
